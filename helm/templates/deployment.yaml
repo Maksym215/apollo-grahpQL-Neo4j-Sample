@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.appname }}
+  labels:
+    app: {{ .Values.appname }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.appname }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appname }}
+    spec:
+      containers:
+      - name: {{ .Values.appname }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 4000
+        env:
+        - name: NEO4J_URI
+          value: "{{ .Values.neo4j_uri }}"
+        - name: NEO4J_USER
+          value: "{{ .Values.neo4j_user }}"
+        - name: NEO4J_PASSWORD
+          value: "{{ .Values.neo4j_password }}"
+        - name: GRAPHQL_LISTEN_PORT
+          value: "4000"
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: {{ .Release.Name }}-registry-secret

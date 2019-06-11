@@ -1,0 +1,16 @@
+appname: api-apollo
+
+image:
+  repository: registry.gitlab.com/madstat/api-apollo
+  tag: latest
+
+ingress:
+  host: gql.micromanager.ai
+  class: "nginx-wss"
+
+dockerconfigjson: eyAiYXV0aHMiOiB7InJlZ2lzdHJ5LmdpdGxhYi5jb20iOiB7ICJhdXRoIjogImFHRnVkR1JsYmpwVFFrZE5XbmRCYUdJM2MzWlRMV2Q0TVVocVpnPT0iIH0gfSB9
+
+
+neo4j_uri: bolt://io-madstat-prod-neo4j-neo4j-core-0.io-madstat-prod-neo4j-neo4j.neo4j.svc.cluster.local:7687
+neo4j_user: ""
+neo4j_password: ""

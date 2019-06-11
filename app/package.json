@@ -1,0 +1,25 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./src/index.js --exec babel-node",
+    "debug": "nodemon ./src/index.js --exec babel-node"
+  },
+  "dependencies": {
+    "graphql-shield": "5.1.0",
+    "graphql-yoga": "1.17.1",
+    "dotenv": "^6.2.0",
+    "neo4j-graphql-js": "^2.2.0",
+    "neo4j-driver": "^1.7.2",
+    "jsonwebtoken": "^8.3.0",
+    "jwks-rsa": "^1.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.2",
+    "nodemon": "^1.17.5"
+  }
+}
